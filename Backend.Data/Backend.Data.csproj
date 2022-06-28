@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+	<LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="BCrypt.Net" Version="0.1.0" />
+		<PackageReference Include="Castle.Core" Version="5.0.0" />
+		<PackageReference Include="Kveer.XmlRPC" Version="1.1.1" />
+		<PackageReference Include="Liquibase.Cli" Version="3.7.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.11">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.11">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
+		<PackageReference Include="NEST" Version="7.17.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="PasswordGenerator" Version="2.1.0" />
+		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.6" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Backend.Application\Backend.Application.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <AspNetCoreModuleName>AspNetCoreModuleV2</AspNetCoreModuleName>
+    <LangVersion>8.0</LangVersion>
+    </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="EnterpriseInformationSystems\**" />
+    <Content Remove="EnterpriseInformationSystems\**" />
+    <EmbeddedResource Remove="EnterpriseInformationSystems\**" />
+    <None Remove="EnterpriseInformationSystems\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="5.3.0" />
+    <PackageReference Include="AspNetCoreHero.EntityFrameworkCore.AuditTrail" Version="1.0.0" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AWSSDK.Core" Version="3.5.2" />
+    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.101" />
+    <PackageReference Include="AWSSDK.S3" Version="3.5.7.8" />
+    <PackageReference Include="AWSSDK.SimpleEmail" Version="3.5.0.61" />
+    <PackageReference Include="CsvHelper" Version="27.2.1" />
+    <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.4.0" />
+    <PackageReference Include="HtmlRenderer.Core" Version="1.5.0.6" />
+    <PackageReference Include="HtmlRenderer.PdfSharp" Version="1.5.0.6" />
+    <PackageReference Include="IronPdf" Version="2022.1.4599" />
+    <PackageReference Include="Kveer.XmlRPC" Version="1.1.1" />
+    <PackageReference Include="Liquibase.Cli" Version="3.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MimeKit" Version="2.10.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="PasswordGenerator" Version="2.1.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.6" />
+    <PackageReference Include="Quartz" Version="3.2.4" />
+    <PackageReference Include="Select.HtmlToPdf.NetCore" Version="21.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Backend.Application\Backend.Application.csproj" />
+    <ProjectReference Include="..\Backend.Data\Backend.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="2.2.0" />
+        <PackageReference Include="Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core" Version="19.4.0.42" />
+        <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="19.3.0.48" />
+        <PackageReference Include="TinyCsvParser" Version="2.6.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="web.config" CopyToPublishDirectory="Always" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Images\" />
+    </ItemGroup>
+
+</Project>
