@@ -18,13 +18,13 @@ using Backend.Data.Repositories;
 using Backend.Data.Entities.Authentication.Users;
 using Backend.Data.IRepositories;
 using Microsoft.AspNetCore.Authorization;
-
+using HRM.Web.Controllers.V1;
 namespace Backend.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
 
-    public class AuthController : ControllerBase
+    public class AuthController : BaseController
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;

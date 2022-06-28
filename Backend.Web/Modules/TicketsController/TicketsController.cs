@@ -10,13 +10,13 @@ using Backend.Data;
 using Backend.Data.Repositories;
 using Backend.Application.DataTransferObjects.DTO;
 using Microsoft.AspNetCore.Authorization;
-
+using HRM.Web.Controllers.V1;
 namespace MovieAPI1.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class TicketsController : ControllerBase
+    public class TicketsController : BaseController
     {
         private readonly MovieAPI1Context _context;
         private readonly TicketRepository _content;

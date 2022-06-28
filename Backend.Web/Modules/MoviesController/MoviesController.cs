@@ -10,14 +10,14 @@ using MovieAPI1.DTO;
 using MovieAPI1.Interface;
 using Backend.Data;
 using Microsoft.AspNetCore.Authorization;
-
+using HRM.Web.Controllers.V1;
 namespace MovieAPI1.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
 
-    public class MoviesController : ControllerBase
+    public class MoviesController : BaseController
     {
         private readonly MovieAPI1Context _context;
         private readonly RepositoryPatternClass _content;

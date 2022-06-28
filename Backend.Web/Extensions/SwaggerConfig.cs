@@ -46,6 +46,7 @@ namespace Backend.Web.Extensions
 
 
             });
+
         }
 
         public static void UseSwaggerSetup(this IApplicationBuilder app)
