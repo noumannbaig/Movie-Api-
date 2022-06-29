@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 using HRM.Web.Controllers.V1;
 namespace MovieAPI1.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TicketsController : BaseController

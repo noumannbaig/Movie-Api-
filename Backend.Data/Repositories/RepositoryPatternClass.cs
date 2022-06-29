@@ -104,7 +104,7 @@ namespace MovieAPI1.Interface
 
         private Movies BadRequestResult()
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Not Found");
         }
     }
 }

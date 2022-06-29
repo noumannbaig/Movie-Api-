@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 using HRM.Web.Controllers.V1;
 namespace MovieAPI1.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
 
@@ -59,30 +59,31 @@ namespace MovieAPI1.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMovies(int id, MovieDTO movies)
         {
-           
+
             if (!MoviesExists(id))
             {
-                return BadRequest();
+                return NotFound();
             }
-            
+
             //_context.Entry(
-              //  new Movies
-                //{
-                  //  Id = id,
-                    //Title=movies.Title,
-                    //Genre=movies.Genre,
-                    //Updatedat=DateTime.Now,
-                //}
-           //).State = EntityState.Modified;
-          await _content.UpdateMovie(
+            //  new Movies
+            //{
+            //  Id = id,
+            //Title=movies.Title,
+            //Genre=movies.Genre,
+            //Updatedat=DateTime.Now,
+            //}
+            //).State = EntityState.Modified;
+            await _content.UpdateMovie(
               id,
-              new MovieDTO
-              {
+              //new MovieDTO
+              //{
                    
-                  Title=movies.Title,
-                  Genre = movies.Genre
+              //    Title=movies.Title,
+              //    Genre = movies.Genre
                   
-              }
+              //}
+              movies
               );
             //try
             //{
