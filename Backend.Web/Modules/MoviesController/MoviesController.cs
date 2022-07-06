@@ -11,6 +11,7 @@ using MovieAPI1.Interface;
 using Backend.Data;
 using Microsoft.AspNetCore.Authorization;
 using HRM.Web.Controllers.V1;
+using Backend.Web.Services.MovieServices;
 namespace MovieAPI1.Controllers
 {
     //[Authorize]
@@ -21,21 +22,23 @@ namespace MovieAPI1.Controllers
     {
         private readonly MovieAPI1Context _context;
         private readonly RepositoryPatternClass _content;
+        private readonly IMovieServiceClass _movieServiceClass;
         //private readonly DummyService _services;
         
         public MoviesController(MovieAPI1Context context)
         {
             _context = context;
             _content=new RepositoryPatternClass (context);
+            _movieServiceClass =new IMovieServiceClass(context);
         }
         
 
         // GET: api/Movies
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Movies>>> GetMovies()
+        public async Task<dynamic> GetMovies()
         {
             //return await _context.Movies.ToListAsync();
-            return await _content.GetMovies();
+            return await _movieServiceClass.GetMovies();
         }
 
         // GET: api/Movies/5
@@ -109,14 +112,20 @@ namespace MovieAPI1.Controllers
         [HttpPost]
         public async Task<ActionResult<Movies>> PostMovies(MovieDTO movies)
         {
-           var result= await _content.AddMovie(movies);
-            return CreatedAtAction("GetMovies", new { id = result.Id }, movies);
+            var result = await _movieServiceClass.AddMovie(movies);
+            if(result==null)
+            {
+                return BadRequest();
+            }
+           //var result= await _content.AddMovie(movies);
+            return CreatedAtAction("GetMovies", new { id = result.Id }, result);
         }
 
         // DELETE: api/Movies/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovies(int id)
         {
+            _movieServiceClass.DeleteMovie(id);
             var movies = await _context.Movies.FindAsync(id);
             if (movies == null)
             {

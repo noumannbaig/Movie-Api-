@@ -83,11 +83,16 @@ namespace MovieAPI1.Interface
         {
             var result = await appDbContext.Movies
                 .FirstOrDefaultAsync(e => e.Id == id);
-
+            
             if (result != null)
             {
                 result.Title = movie.Title;
+                if(movie.Genre==null)
+                {
+                    result.Genre = result.Genre;
+                }
                 result.Genre = movie.Genre;
+                
                 result.Updatedat = System.DateTime.Now;
 
                 await appDbContext.SaveChangesAsync();

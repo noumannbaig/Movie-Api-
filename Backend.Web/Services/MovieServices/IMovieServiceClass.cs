@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MovieAPI1.Interface;
 using Backend.Data;
 using System.Linq;
+using Backend.Application.Wrappers;
+using System;
 
 namespace Backend.Web.Services.MovieServices
 {
@@ -25,17 +27,31 @@ namespace Backend.Web.Services.MovieServices
             {
                 return null;
             }
-            return _content.AddMovie(movie);
+            var result= _content.AddMovie(movie);
+            return result;
         }
 
         public void DeleteMovie(int Id)
         {
+             _content.DeleteMovie(Id);
             throw new System.NotImplementedException();
         }
 
-        public Task<ActionResult<IEnumerable<Movies>>> GetMovies()
+        public async Task<Response<dynamic>> GetMovies()
         {
-            throw new System.NotImplementedException();
+            dynamic result = await _content.GetMovies();
+            if(result == null)
+            {
+                return NotFoundResult();
+            }
+
+            return new Response<dynamic>(true,result, "Records sent succesfully");
+
+        }
+
+        private Response<dynamic> NotFoundResult()
+        {
+            throw new NotImplementedException("Not Found");
         }
 
         public Task<Movies> GetMovies(int Id)

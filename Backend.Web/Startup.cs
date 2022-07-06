@@ -31,6 +31,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
+using Backend.Web.Services.MovieServices;
 namespace Backend.Web
 {
     public class Startup
@@ -51,6 +52,7 @@ namespace Backend.Web
             services.AddScoped<MovieRepositoryInterface, RepositoryPatternClass>();
             services.AddScoped<TicketInterface, TicketRepository>();
             services.AddScoped<AuthInterface, JwtRepository>();
+            services.AddScoped<IMoviesService, IMovieServiceClass>();
             services.AddControllers();
             services.AddApplicationLayer();
             DataBaseSettings.ConnectionString = Configuration["DataBaseSettings:ConnectionString"];

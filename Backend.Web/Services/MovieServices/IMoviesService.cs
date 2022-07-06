@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Backend.Data;
 using MovieAPI1.Models;
 using MovieAPI1.DTO;
+using Backend.Application.Wrappers;
 
 namespace Backend.Web.Services.MovieServices
 {
@@ -11,7 +12,7 @@ namespace Backend.Web.Services.MovieServices
     {
 
         //Task <IEnumerable<MovieAPI1.Models.Movies>> GetMovies();
-        Task<ActionResult<IEnumerable<Movies>>> GetMovies();
+        Task<Response<dynamic>> GetMovies();
         Task<Movies> GetMovies(int Id);
         Task<Movies> AddMovie(MovieDTO movie);
         Task<Movies> UpdateMovie(int id, MovieDTO movie);
